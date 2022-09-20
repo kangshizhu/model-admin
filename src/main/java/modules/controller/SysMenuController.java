@@ -16,7 +16,7 @@ import javax.annotation.Resource;
 
 /**
  * <p>
- * 菜单权限表 前端控制器
+ * 菜单权限表
  * </p>
  *
  * @author kangshizhu
