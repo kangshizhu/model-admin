@@ -1,14 +1,15 @@
-package modules.entity;
+package modules.dto;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-import modules.entity.BaseEntity;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.time.LocalDateTime;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import modules.entity.BaseEntity;
+
+import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -22,7 +23,7 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
 @ApiModel(value="SysMenu对象", description="菜单权限表")
-public class SysMenu extends BaseEntity {
+public class SysMenuDto extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 
@@ -59,7 +60,6 @@ public class SysMenu extends BaseEntity {
 
     @ApiModelProperty(value = "菜单图标")
     private String icon;
-
 
     @ApiModelProperty(value = "备注")
     private String remark;

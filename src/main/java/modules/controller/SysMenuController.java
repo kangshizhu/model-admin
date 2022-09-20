@@ -1,9 +1,18 @@
 package modules.controller;
 
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import io.swagger.annotations.ApiOperation;
+import modules.dto.SysMenuDto;
+import modules.dto.UsersDto;
+import modules.entity.Users;
+import modules.service.ISysMenuService;
+import modules.service.IUsersService;
+import modules.util.PasswordUtil;
+import modules.vo.Result;
+import org.springframework.beans.BeanUtils;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.RestController;
+import javax.annotation.Resource;
 
 /**
  * <p>
@@ -14,7 +23,11 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2022-09-20
  */
 @RestController
-@RequestMapping("/sys-menu")
+@RequestMapping("/sysmenu")
 public class SysMenuController {
+    @Resource
+    ISysMenuService  iSysMenuService;
+
+
 
 }
