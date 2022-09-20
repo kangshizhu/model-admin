@@ -43,7 +43,7 @@ mybatis-plus:
 
 
 spring.redis:
-  database: 0
+  database: 1
   host: 47.108.180.229
   lettuce:
     pool:
