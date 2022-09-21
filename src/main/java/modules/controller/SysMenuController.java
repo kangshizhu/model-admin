@@ -17,6 +17,4 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/sysmenu")
 public class SysMenuController {
 
-
-
 }
