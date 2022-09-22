@@ -2,18 +2,17 @@ package modules.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import modules.dto.UsersDto;
 import modules.entity.Users;
 import modules.mapper.UsersMapper;
 import modules.service.IUsersService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import modules.util.CommonConstant;
 import modules.util.JwtUtil;
 import modules.util.PasswordUtil;
 import modules.util.RedisUtil;
 import modules.util.shiro.LoginUser;
 import modules.vo.Result;
-import net.bytebuddy.asm.Advice;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,7 +41,7 @@ public class UsersServiceImpl extends ServiceImpl<UsersMapper, Users> implements
         //密码加密
         String password = PasswordUtil.encrypt("cloud", usersDto.getPassword(),PasswordUtil.SALT);
         //查询用户是否存在
-        queryWrapper.eq("phone",usersDto.getPhone()).eq("password",password).eq("type",0);
+        queryWrapper.eq("phone",usersDto.getPhone()).eq("password",password);
         Users userOne=usersMapper.selectOne(queryWrapper);
         //手机第一次登陆就创建一个新用户
         if(userOne==null){

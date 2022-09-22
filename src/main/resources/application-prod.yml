@@ -6,6 +6,8 @@ aliyun:
       keyecrets: "7JYyFcduasWR5xfHj08xl5WWGvV3Lz"
       #bucket可以在控制台创建，也可以使用java代码创建
       bucketname: "xzcm9999"
+      #单个文件最大大小，单位字节
+      maxsize: 5242880
 
 server:
   port: 8182
