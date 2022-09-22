@@ -5,6 +5,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import modules.util.aliyunFile.AliyunOSSUtil;
 import modules.vo.Result;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,7 +27,8 @@ import java.io.File;
 @RequestMapping("/file")
 public class FileController {
 
-
+    @Value("${aliyun.oss.file.maxsize}")
+    private  Long oss_file_maxsize;
 
 
     /**
@@ -45,6 +47,9 @@ public class FileController {
             String[] filename = originalFilename.split("\\.");
             file = File.createTempFile(filename[0], filename[1]);    //注意下面的 特别注意！！！
             files.transferTo(file);
+            if(files.getSize()>oss_file_maxsize){
+                return Result.error("文件大小不能大于"+ oss_file_maxsize/1024 +"KB!");
+            }
             file.deleteOnExit();
             //返回阿里云文件路径
             String url= AliyunOSSUtil.OSSUploadFile(file);
