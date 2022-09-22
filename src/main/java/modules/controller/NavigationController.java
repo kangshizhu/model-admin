@@ -37,7 +37,4 @@ public class NavigationController {
         return Result.OK("添加成功");
     }
 
-
-
-
 }
