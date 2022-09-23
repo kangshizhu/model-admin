@@ -26,8 +26,7 @@ public class UsersMechanismServiceImpl extends ServiceImpl<UsersMechanismMapper,
     @Override
     public Result userRegister(UsersMechanismDto usersMechanismDto) {
         QueryWrapper<UsersMechanism> queryWrapper=new QueryWrapper<>();
-        //校验手机号是否重复
-        //查询用户是否存在
+        //校验手机号是否重复,判断用户是否存在
         queryWrapper.eq("phone",usersMechanismDto.getPhone());
         UsersMechanism usersMechanism=usersMechanismMapper.selectOne(queryWrapper);
         if(usersMechanism==null){

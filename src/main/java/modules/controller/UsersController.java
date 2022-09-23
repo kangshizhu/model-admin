@@ -104,7 +104,7 @@ public class UsersController {
             if(value.toString().equals(code)){
                 //验证码清除
                 redisUtil.del(phone);
-                return (Result) iUsersMechanismService.userRegister(usersDto);
+                return iUsersMechanismService.userRegister(usersDto);
             }else{
                 return Result.error("验证码不正确!");
             }
