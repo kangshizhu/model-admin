@@ -35,7 +35,7 @@ public class ShopEvaluationListServiceImpl extends ServiceImpl<ShopEvaluationLis
 
     @Override
     public Result pushShop(ShopEvaluationList shopEvaluationList) {
-        String companyId = shopEvaluationList.getCompanyId();
+        Long companyId = shopEvaluationList.getMerchantId();
         //有该商户才能发布测评商品
         QueryWrapper<CompanyRegisterInfo> companyRegisterInfoQueryWrapper=new QueryWrapper();
         companyRegisterInfoQueryWrapper.eq("company_id",companyId);
