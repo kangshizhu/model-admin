@@ -26,7 +26,7 @@ import java.util.List;
  */
 @Api(tags = "测评商品申请接口")
 @RestController
-@RequestMapping("/evaluation-apply")
+@RequestMapping("/evaluationApply")
 public class EvaluationApplyController {
 
     @Resource
@@ -56,9 +56,9 @@ public class EvaluationApplyController {
     }
 
     @ApiOperation(value = "申请不通过", notes = "申请不通过")
-    @PostMapping(value = "/approve-nopass")
+    @PostMapping(value = "/approveNoPass")
     @ResponseBody
-    public Result approveNopass(@RequestBody String[] evaluationApplyIds) {
+    public Result approveNoPass(@RequestBody String[] evaluationApplyIds) {
         List<String> ids = Arrays.asList(evaluationApplyIds);
         applyService.approve(ids,EvaluationConstant.APPROVE_NOPASS);
         return Result.OK("操作成功!");

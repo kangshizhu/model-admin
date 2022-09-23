@@ -28,7 +28,7 @@ import javax.annotation.Resource;
  * @since 2022-09-22
  */
 @RestController
-@RequestMapping("/shop-evaluation-list")
+@RequestMapping("/shoEvaluationList")
 public class ShopEvaluationListController {
 
     @Resource
@@ -44,7 +44,6 @@ public class ShopEvaluationListController {
         ShopEvaluationList evaluationList = new ShopEvaluationList();
         BeanUtils.copyProperties(shopEvaluationListDto,evaluationList);
         return shopEvaluationListService.pushShop(evaluationList);
-
     }
 
     @ApiOperation(value = "停止商品测评", notes = "终止测评商品,只传入测评商品ID即可")
@@ -64,7 +63,7 @@ public class ShopEvaluationListController {
     public Result getShopList(@RequestBody ShopEvaluationListDto shopEvaluationListDto) {
         Page<ShopEvaluationList> page=new Page<>(shopEvaluationListDto.getCurrent(),shopEvaluationListDto.getSize());
         QueryWrapper<ShopEvaluationList> queryWrapper=new QueryWrapper<>();
-        queryWrapper.eq("company_id",shopEvaluationListDto.getCompanyId());
+        queryWrapper.eq("company_id",shopEvaluationListDto.getMerchantId());
         IPage<ShopEvaluationList> shopEvaluationListIPage = shopEvaluationListService.page(page,queryWrapper);
         return Result.OK(shopEvaluationListIPage);
     }
