@@ -20,7 +20,6 @@ import modules.entity.BaseEntity;
 @ApiModel(value="ShopEvaluationList对象", description="")
 public class ShopEvaluationListDto  extends BaseEntity {
 
-
     @ApiModelProperty(value = "商品测评id")
     @TableId(value = "ID", type = IdType.AUTO)
     private Long id;
@@ -37,11 +36,11 @@ public class ShopEvaluationListDto  extends BaseEntity {
     @ApiModelProperty(value = "可申请数量")
     private Long nums;
 
-    @ApiModelProperty(value = "状态(1,启用;0,停止)")
+    @ApiModelProperty(value = "状态(1,启用;0,停止);1,启用;0,停止")
     private String status;
 
-    @ApiModelProperty(value = "商户ID;发布商户的ID")
-    private String companyId;
+    @ApiModelProperty(value = "品牌商ID")
+    private Long merchantId;
 
     @ApiModelProperty(value = "分页查询")
     private Long current;

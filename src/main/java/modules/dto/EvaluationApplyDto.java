@@ -25,10 +25,10 @@ public class EvaluationApplyDto extends BaseEntity {
     private Long id;
 
     @ApiModelProperty(value = "申请用户ID")
-    private String userId;
+    private Long userId;
 
     @ApiModelProperty(value = "商品测评ID")
-    private String evaluationId;
+    private Long evaluationId;
 
     @ApiModelProperty(value = "申请状态;默认0,待审核，1,审核通过，2,审核不通过")
     private String applyStatus;
@@ -41,4 +41,7 @@ public class EvaluationApplyDto extends BaseEntity {
 
     @ApiModelProperty(value = "收获地址")
     private String userAddress;
+
+    @ApiModelProperty(value = "品牌商ID")
+    private Long merchantId;
 }

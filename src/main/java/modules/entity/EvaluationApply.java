@@ -16,7 +16,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author chenguitong
- * @since 2022-09-22
+ * @since 2022-09-23
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -31,10 +31,10 @@ public class EvaluationApply extends BaseEntity {
     private Long id;
 
     @ApiModelProperty(value = "申请用户ID")
-    private String userId;
+    private Long userId;
 
     @ApiModelProperty(value = "商品测评ID")
-    private String evaluationId;
+    private Long evaluationId;
 
     @ApiModelProperty(value = "申请状态;默认0,待审核，1,审核通过，2,审核不通过")
     private String applyStatus;
@@ -47,6 +47,9 @@ public class EvaluationApply extends BaseEntity {
 
     @ApiModelProperty(value = "收获地址")
     private String userAddress;
+
+    @ApiModelProperty(value = "品牌商ID")
+    private Long merchantId;
 
 
 }

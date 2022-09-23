@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import modules.entity.BaseEntity;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
-import com.baomidou.mybatisplus.annotation.TableField;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -17,7 +16,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author chenguitong
- * @since 2022-09-22
+ * @since 2022-09-23
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -28,7 +27,7 @@ public class ShopEvaluationList extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "商品测评id")
-    @TableId(value = "ID", type = IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     @ApiModelProperty(value = "商品名称")
@@ -46,8 +45,8 @@ public class ShopEvaluationList extends BaseEntity {
     @ApiModelProperty(value = "状态(1,启用;0,停止);1,启用;0,停止")
     private String status;
 
-    @ApiModelProperty(value = "商户ID;发布商户的ID")
-    private String companyId;
+    @ApiModelProperty(value = "品牌商ID")
+    private Long merchantId;
 
 
 }
